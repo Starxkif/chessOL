@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="shortcut icon" href="#"/>
+    <!--    <link rel="stylesheet" href="layui/css/layui.css">-->
+    <!--    <script src="layui/layui.js"></script>-->
+</head>
+<body>
+<div class="mainframe">
+    <div style="border-right: black solid 1px;float: left;width: 30%;height: 100%">
+        <lable>
+            <center>
+                对战记录
+            </center>
+        </lable>
+        <div>
+            内容
+        </div>
+    </div>
+    <div style="float: right;width: 60%;">
+<!--        <div style="margin-bottom: 20px">-->
+<!--            <label>输入房间号：</label>-->
+<!--        </div>-->
+<!--        <div style="margin-bottom: 30px">-->
+<!--            <input type="text" id="room" style="width: 200px;height: 40px;border-radius: 10px;border: 1px solid;">-->
+<!--        </div>-->
+        <button style="width: 100px;height: 40px;border-radius: 20px" id="play">开始游戏</button>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/jquery.js"></script>
+<script>
+    $(function () {
+        $("#play").click(function () {
+            window.location.href = "/chess";
+        });
+
+    });
+</script>
+<style>
+    .mainframe {
+        margin: 200px auto;
+        background-color: #fff;
+        width: 600px;
+        height: 330px;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #000000;
+
+    }
+</style>
