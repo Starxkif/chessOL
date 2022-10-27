@@ -21,7 +21,7 @@ public class ActiveService {
         JSONObject jb = new JSONObject();
         jb.put("flag", flag);
         jb.put("curPlay", chesses.curPlayer);
-        if (flag == 2) {
+        if (flag == 2||flag==9) {
             jb.put("map", ChessUtils.mapStr(chesses));
         }
         return jb.toJSONString();
