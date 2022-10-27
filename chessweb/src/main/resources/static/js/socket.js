@@ -1,7 +1,7 @@
 var websocket = null;
 //判断当前浏览器是否支持WebSocket
 if ('WebSocket' in window) {
-    websocket = new WebSocket("ws://127.0.0.1:8080/websocket/"+com.account);
+    websocket = new WebSocket("ws://"+com.port+":8080/websocket/" + com.account);
 } else {
     alert('当前浏览器 Not support websocket')
 }
@@ -19,16 +19,42 @@ websocket.onopen = function () {
 //接收消息回调方法
 websocket.onmessage = function (event) {
     let data = JSON.parse(event.data);
-    if (data.flag == 2) {
-        map = data.map;
-        // console.log(data.curPlay)
-        if (data.curPlay == 0) {
-            $("#moveInfo").text("红方走")
-        }else{
-            $("#moveInfo").text("黑方走")
+    switch (data.flag) {
+        case 2: {
+            map = data.map;
+            if (data.curPlay == 0) {
+                $("#moveInfo").text("红方走")
+            } else {
+                $("#moveInfo").text("黑方走")
+            }
+            drawAll();
+        }break;
+        case 4:{
+            map = data.map;
+            if (data[com.account] == null) {
+                $("#yourInfo").text("你是红方")
+            }else {
+                $("#yourInfo").text("你是黑方")
+            }
+            if (data.curPlay == 0) {
+                $("#moveInfo").text("红方走");
+            } else {
+                $("#moveInfo").text("黑方走");
+            }
+            drawAll();
+        }break;
+        case 9:{
+            map = data.map;
+            drawAll();
+            if (data.curPlay==0){
+                alert("黑方胜利！");
+                window.location.href = "/main";
+            }else{
+                alert("红方胜利！")
+                window.location.href = "/main";
+            }
         }
     }
-    drawAll();
 }
 
 //连接关闭回调方法

@@ -49,17 +49,20 @@ public class ActiveService {
             //找到一个单人房间
             if (v.sessionList.size() == 1) {
                 v.sessionList.add(session);
+                v.accounts.add(account);
                 WebSocketServer.getMap().put(account, v);
-                jsonObject.put("flag", 2);
+                jsonObject.put("flag", 4);
                 jsonObject.put("curPlay", v.curPlayer);
                 jsonObject.put("map", ChessUtils.mapStr(v));
+                jsonObject.put(account, 1);
             }
         });
         Integer flag = (Integer) jsonObject.get("flag");
-        if (flag==0) {
+        if (flag == 0) {
             //找不到自己创建一个
             Chesses chesses = new Chesses();
             chesses.sessionList.add(session);
+            chesses.accounts.add(account);
             WebSocketServer.getMap().put(account, chesses);
             jsonObject.put("flag", 0);
         }

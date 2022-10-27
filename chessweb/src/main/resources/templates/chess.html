@@ -15,6 +15,7 @@
         <!--        <audio src="audio/select.wav" id="selectAudio" preload="auto"></audio>-->
     </div>
     <div class="chess_right">
+        <div id="yourInfo" style="font-size: 16px"></div>
         <div id="moveInfo">红方走</div>
         <div id="bubar">
             <input type="button" name="regret" id="regretBn" value="悔棋"/>
@@ -30,8 +31,9 @@
 <script src="js/common.js"></script>
 <script src="js/draw.js"></script>
 <script>
-    com.account = [[${session.account}]]
-    console.log("abdd" + com.account)
+    com.account = '[[${session.account}]]'
+    com.port='[[${#httpServletRequest.getServerName()}]]'
+    console.log("abdd" + com.port)
 </script>
 <script src="js/socket.js"></script>
 <script src="js/action.js"></script>

@@ -44,6 +44,9 @@ public class ChessUtils {
                 chesses.map[chesses.index.y][chesses.index.x] = ' ';
                 chesses.index.x = -1;
                 chesses.curPlayer = chesses.curPlayer == 1 ? 0 : 1;
+                if (ch == 'j' || ch == 'J') {
+                    return 9;
+                }
                 return 2;
             }
         }

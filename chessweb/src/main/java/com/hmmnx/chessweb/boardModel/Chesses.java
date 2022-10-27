@@ -30,4 +30,5 @@ public class Chesses {
     public int curPlayer = 0;//当前轮到谁走，0是小写，1是大写
     public Index index = new Index(-1,-1);   //记录上次点击的内容
     public List<Session> sessionList=new ArrayList<>();
+    public List<String> accounts=new ArrayList<>();
 }
